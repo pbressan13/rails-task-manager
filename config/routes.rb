@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   get 'tasks/new', to: 'tasks#new'
   post 'tasks', to: 'tasks#create'
 
+  # Edit tasks
+  get 'tasks/:id/edit', to: 'tasks#edit', as: :task_edit
+  patch 'tasks/:id', to: 'tasks#update'
+
+  # Destroy
+  delete 'tasks/:id', to: 'tasks#destroy'
+
   # View all tasks or a specific task
   get 'tasks/:id', to: 'tasks#show', as: :task
   get 'tasks', to: 'tasks#index'
